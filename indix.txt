@@ -121,6 +121,14 @@
       background-color: #1e1e1e;
     }
 
+
+    #trading-gallery img {
+    display: block;
+    margin: 15px auto 0 auto; /* top margin 15px, auto left/right centers the image */
+    max-width: 90%; /* keep it responsive */
+    height: auto;
+  }
+
     @media (max-width: 600px) {
       header {
         flex-direction: column;
@@ -277,6 +285,7 @@
     <!-- Navigation section with links to different parts of the webpage -->
     <a href="#about-author">About the author</a>
     <a href="#about-program">About the program</a>
+    <a href="#trading-gallery">Trading Gallery</a>
     <a href="#contact">Contact</a>
     <a href="#external-links">External links</a>
   </nav>
@@ -299,6 +308,12 @@
         program includes live trading sessions, educational resources, and a
         community of like-minded traders.
       </p>
+      <section id="trading-gallery">
+  <h2>Trading Gallery</h2>
+  <p>Check out some screenshots from live trades and the MT5 platform.</p>
+  <img src="mt5.png" alt="MT5 trading platform screenshot" style="max-width: 100%; height: auto; margin-top: 15px;" />
+</section>
+
     </section>
     <section id="contact">
       <h2>Contact</h2>
