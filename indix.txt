@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Michael's Tradingroom – A platform offering live trading sessions, educational resources, and a community for traders. Learn from a seasoned trader and software engineering student." />
+  <meta name="keywords" content="trading, financial markets, education, software engineering, live trading, traders community" />
+  <meta name="author" content="Michael Manasseh Dalaky" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiI+PHNpcmNsZSBjeD0iOCIgY3k9IjgiIHI9IjgiIGZpbGw9IiMwMDAwMDAiLz48L3N2Zz4=" />
+
+  <title>Michael's Tradingroom</title>
+  <style>
+    /* CSS styles for the webpage */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+      color: #000;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+    }
+
+    h1 {
+      margin: 0;
+      flex-grow: 1;
+      text-align: left;
+    }
+
+    nav {
+      background-color: #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      display: inline-block;
+      padding: 10px;
+      text-decoration: none;
+      color: #333;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #333;
+      color: #fff;
+    }
+
+    main {
+      margin: 20px;
+    }
+
+    section {
+      margin-bottom: 20px;
+      padding: 10px;
+      background-color: #fff;
+      transition: background-color 0.3s ease;
+    }
+
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    #logo {
+      width: 100px;
+      height: 100px;
+      margin-right: 20px;
+      transition: width 0.3s ease;
+    }
+
+    /* Dark mode styles */
+    body.dark-mode {
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+
+    body.dark-mode header,
+    body.dark-mode footer {
+      background-color: #222;
+      color: #eee;
+    }
+
+    body.dark-mode nav {
+      background-color: #333;
+    }
+
+    body.dark-mode nav a {
+      color: #ddd;
+    }
+
+    body.dark-mode nav a:hover {
+      background-color: #555;
+      color: #fff;
+    }
+
+    body.dark-mode section {
+      background-color: #1e1e1e;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #logo {
+        width: 80px;
+        height: 80px;
+        margin: 0 0 10px 0;
+      }
+
+      h1 {
+        text-align: center;
+        flex-grow: 0;
+      }
+
+      nav a {
+        display: block;
+        padding: 8px 0;
+        border-bottom: 1px solid #ccc;
+      }
+
+      main {
+        margin: 10px;
+      }
+    }
+
+    /* Social icon styles */
+    #external-links i {
+      margin-right: 8px;
+      font-size: 1.2em;
+      vertical-align: middle;
+      color: #333;
+      transition: color 0.3s ease;
+    }
+
+    #external-links a:hover i {
+      color: #007bff;
+    }
+
+    /* Contact form styles */
+    form {
+      background-color: #f9f9f9;
+      padding: 15px;
+      border-radius: 5px;
+      max-width: 400px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #333;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 3px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #555;
+    }
+  </style>
+
+  <script>
+    // JavaScript functions for the webpage
+
+    // Function to enlarge the image when hovered over
+    function enlargeImage(img) {
+      img.style.width = "240px";
+    }
+
+    // Function to shrink the image back to its original size
+    function shrinkImage(img) {
+      img.style.width = "120px";
+    }
+
+    // Get the last viewed element's coordinates from local storage
+    let lastViewedElement = localStorage.getItem("lastViewedElement");
+    if (lastViewedElement) {
+      window.scrollTo(lastViewedElement.x, lastViewedElement.y);
+    }
+
+    // Save the coordinates of the last viewed element on scroll
+    window.addEventListener("scroll", function () {
+      localStorage.setItem(
+        "lastViewedElement",
+        JSON.stringify({ x: window.scrollX, y: window.scrollY })
+      );
+    });
+
+    // Save the time of the last entry in local storage
+    let lastEntryTime = localStorage.getItem("lastEntryTime");
+    if (!lastEntryTime) {
+      lastEntryTime = new Date();
+      localStorage.setItem("lastEntryTime", lastEntryTime);
+    }
+
+    // Dark mode toggle logic
+    window.addEventListener("DOMContentLoaded", () => {
+      const toggleBtn = document.getElementById("darkModeToggle");
+      // Apply saved preference
+      if (localStorage.getItem("darkMode") === "enabled") {
+        document.body.classList.add("dark-mode");
+        toggleBtn.textContent = "☀️ Light Mode";
+      }
+
+      toggleBtn.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+        if (document.body.classList.contains("dark-mode")) {
+          toggleBtn.textContent = "☀️ Light Mode";
+          localStorage.setItem("darkMode", "enabled");
+        } else {
+          toggleBtn.textContent = "🌙 Dark Mode";
+          localStorage.setItem("darkMode", "disabled");
+        }
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <header>
+    <!-- Header section with logo and title -->
+    <img
+      id="logo"
+      src="candle.jpg"
+      alt="Michael's Tradingroom logo"
+      loading="lazy"
+      onmouseover="enlargeImage(this)"
+      onmouseout="shrinkImage(this)"
+    />
+
+    <h1>Michael's Tradingroom</h1>
+    <button
+      id="darkModeToggle"
+      aria-label="Toggle dark mode"
+      style="margin-left: 20px; padding: 8px 12px; cursor: pointer"
+    >
+      🌙 Dark Mode
+    </button>
+  </header>
+  <nav>
+    <!-- Navigation section with links to different parts of the webpage -->
+    <a href="#about-author">About the author</a>
+    <a href="#about-program">About the program</a>
+    <a href="#contact">Contact</a>
+    <a href="#external-links">External links</a>
+  </nav>
+  <main>
+    <!-- Main section with different sections about the author, program, contact information, and external links -->
+    <section id="about-author">
+      <h2>About the author</h2>
+      <p>
+        Michael Manasseh Dalaky is a software enginering student of VSU Russia(3rd
+        Year) & a seasoned trader with over 5 years of experience in the
+        financial markets. He is passionate about sharing his knowledge and
+        helping others succeed in trading.
+      </p>
+    </section>
+    <section id="about-program">
+      <h2>About the program</h2>
+      <p>
+        Michael's Tradingroom is a platform designed to provide traders with the
+        tools and resources they need to succeed in the financial markets. Our
+        program includes live trading sessions, educational resources, and a
+        community of like-minded traders.
+      </p>
+    </section>
+    <section id="contact">
+      <h2>Contact</h2>
+      <form
+        id="contactForm"
+        action="https://formspree.io/f/mrbkzgoe"
+        method="POST"
+      >
+        <label for="name">Name:</label><br />
+        <input type="text" id="name" name="name" required /><br /><br />
+
+        <label for="email">Email:</label><br />
+        <input type="email" id="email" name="_replyto" required /><br /><br />
+
+        <label for="message">Message:</label><br />
+        <textarea id="message" name="message" rows="5" required></textarea
+        ><br /><br />
+
+        <button type="submit">Send</button>
+      </form>
+    </section>
+    <section id="external-links">
+      <h2>External links</h2>
+      <ul id="external-links">
+        <li>
+          <a
+            href="https://wa.link/9apxzd"
+            target="_blank"
+            rel="noopener"
+            ><i class="fab fa-whatsapp"></i> Whatsapp</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://tttttt.me/Drillefx"
+            target="_blank"
+            rel="noopener"
+            ><i class="fab fa-telegram"></i> Telegram</a
+          >
+        </li>
+        <li>
+          <a href="https://vk.com/drillefx" target="_blank" rel="noopener"
+            ><i class="fab fa-vk"></i> Vk</a
+          >
+        </li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Michael's Tradingroom. All rights reserved.</p>
+  </footer>
+</body>
+</html>
